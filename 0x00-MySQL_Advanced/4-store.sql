@@ -1,13 +1,16 @@
 -- create trigger
 -- when new order is added
 -- item reduces
+
+DELIMITER $$
+
 CREATE TRIGGER decrease_quantity
-AFTER INSERT ON item
+AFTER INSERT ON items
 FOR EACH ROW
 BEGIN
     UPDATE items
-    SET quantity = quantity - NEW.number
-    WHERE name = NEW.item_name;
+    SET quantity = quantity - NEW.quantity
+    WHERE name = NEW.name;
 END $$
 
-DELIMETER;
+DELIMITER;
