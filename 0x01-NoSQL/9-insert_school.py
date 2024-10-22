@@ -6,4 +6,4 @@ import pymongo
 
 def insert_school(mongo_collection, **kwargs):
     """insert into db"""
-    return mongo_collection.insert_one(kwargs)._id
+    return mongo_collection.insert_one(kwargs).insert_id
