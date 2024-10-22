@@ -1,4 +1,4 @@
 // delete record
-db.school.delete(
+db.school.deleteMany(
     {name:'Holberton School'}
 )
