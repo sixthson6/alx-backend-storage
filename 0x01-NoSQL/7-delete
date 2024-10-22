@@ -1,5 +1,4 @@
 // delete record
 db.school.delete(
-    {name:'Holberton School'},
-    {multi: true}
+    {name:'Holberton School'}
 )
