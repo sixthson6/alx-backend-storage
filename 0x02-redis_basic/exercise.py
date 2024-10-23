@@ -3,6 +3,7 @@
 
 import redis
 import uuid
+from typing import Callable, Optional
 
 
 class Cache:
@@ -19,3 +20,13 @@ class Cache:
         self._redis.set(key, data)
 
         return key
+
+    def get(self, key: str, fn: Optional[Callable] = None):
+        """class get method"""
+        data = self._redis.get(key)
+        if data is None:
+            return None
+        if fn is not None:
+            return fn(data)
+
+        return data
